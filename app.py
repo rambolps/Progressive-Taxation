@@ -1,4 +1,4 @@
-import graph as G
+import Graph as G
 import TaxCalculator as TC
 
 from Canada import FederalIncome as FI
