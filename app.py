@@ -1,5 +1,8 @@
-import graph as g
-import Canada as C
+import graph as G
+import TaxCalculator as TC
+
+from Canada import FederalIncome as FI
+from Canada import OntarioIncome as OI
 
 income = 0
 ftax = 0
@@ -15,14 +18,14 @@ def main():
     
     income = getAmount()
     
-    ftax = round(C.FederalIncome.fcalculate(C.FederalIncome,income),2)
-    ptax = round(C.OntarioIncome.ocalculate(C.OntarioIncome,income),2)
+    ftax = round(TC.calculate(income,FI.f1,FI.f2,FI.f3,FI.f4,FI.f5),2)
+    ptax = round(TC.calculate(income,OI.o1,OI.o2,OI.o3,OI.o4,OI.o5),2)
 
     tax = ftax+ptax
 
     print("You owe $"+str(tax)+" in taxes!")
 
-    g.fvp(ftax,ptax,"Canada","Ontario",tax)
+    G.fvp(ftax,ptax,"Canada","Ontario",tax)
 
 
 
