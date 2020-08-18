@@ -1,8 +1,6 @@
 import Graph as G
 import TaxCalculator as TC
-
-from Canada import FederalIncome as FI
-from Canada import OntarioIncome as OI
+import Canada as C
 
 income = 0
 ftax = 0
@@ -18,10 +16,10 @@ def main():
     
     income = getAmount()
     
-    ftax = round(TC.calculate(income,FI.f1,FI.f2,FI.f3,FI.f4,FI.f5),2)
-    ptax = round(TC.calculate(income,OI.o1,OI.o2,OI.o3,OI.o4,OI.o5),2)
+    ftax = TC.calcIncome(income,C.Federal.income)
+    ptax = TC.calcIncome(income,C.Ontario.income)
 
-    tax = ftax+ptax
+    tax = round(ftax+ptax,2)
 
     print("You owe $"+str(tax)+" in taxes!")
 
