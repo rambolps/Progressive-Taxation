@@ -44,32 +44,33 @@ def calcTotalIn(income,prov):
 
 #create tkinter window
 app = tk.Tk()
-app.geometry("500x500")
+app.geometry("280x250")
 app.title("Progressive Taxation")
 app.iconbitmap("tax.ico")
-
-
 
 #select the ttk style
 style = ThemedStyle(app)
 style.set_theme("breeze")
 
 country = StringVar()
-countryDrop =  ttk.OptionMenu(app, country, "Canada").pack()
+countryDrop =  ttk.OptionMenu(app, country, "Canada")
+countryDrop.place(relx=0.5, rely=0.20, anchor=tk.CENTER)
 
 province = StringVar()
-provinceDrop =  ttk.OptionMenu(app, province, C.provinces[0], *C.provinces).pack()
+provinceDrop =  ttk.OptionMenu(app, province, C.provinces[0], *C.provinces)
+provinceDrop.place(relx=0.5, rely=0.40, anchor=tk.CENTER)
 
 income = StringVar()
 income.set("Please Enter Income ($)")
-incomeEntry = ttk.Entry(app, textvariable=income).pack()
+incomeEntry = ttk.Entry(app, textvariable=income)
+incomeEntry.place(relx=0.5, rely=0.60, anchor=tk.CENTER)
 
 def proxyIn():
     floatIn = float(income.get())
     calcTotalIn(floatIn,province.get())
 
 calc = ttk.Button(app,text='Calculate', command = proxyIn)
-calc.pack()
+calc.place(relx=0.5, rely=0.80, anchor=tk.CENTER)
 
 
 #create app main loop (goes on forever, unless interuppted)
