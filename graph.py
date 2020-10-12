@@ -1,8 +1,9 @@
+#Import graph library
 from matplotlib import pyplot as plt
-import numpy as np
 
-
+#create pie chart based of tax info
 def fvp(ftax,ptax,country,prov,total):
+    plt.close()
     plt.style.use("fivethirtyeight")
 
     tax_names = [str(country), str(prov)] 
